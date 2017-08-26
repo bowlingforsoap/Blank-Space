@@ -350,9 +350,7 @@ MonoBehaviour:
   m_TurnSpeed: 1.5
   m_TurnSmoothing: 0
   m_TiltMax: 75
-  m_TiltMin: 45
-  m_LockCursor: 0
-  m_VerticalAutoReturn: 0
+  m_TiltMin: 75
 --- !u!1 &2082837367 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
