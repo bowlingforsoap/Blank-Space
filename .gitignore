@@ -33,6 +33,6 @@ sysinfo.txt
 *.stackdump
 
 
-.vs
+/.vs
 /Library
 /Temp
