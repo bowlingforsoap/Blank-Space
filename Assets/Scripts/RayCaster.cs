@@ -30,22 +30,12 @@ public class RayCaster : MonoBehaviour {
         Vector2 pixelUV = hit.textureCoord;
         pixelUV.x *= tex.width;
         pixelUV.y *= tex.height;
-
-		Circle (tex, (int)pixelUV.x, (int)pixelUV.y, 10, Color.clear);
-
-		/*Color texColor = tex.GetPixel ((int)pixelUV.x, (int)pixelUV.y);
-		Debug.Log ("texColor before: " + texColor);
-		texColor.a = 0.0f;
-		Debug.Log ("texColor before changed: " + texColor);
-
-        tex.SetPixel((int)pixelUV.x, (int)pixelUV.y, texColor);
-		texColor = tex.GetPixel ((int)pixelUV.x, (int)pixelUV.y);
-		Debug.Log ("texColor after: " + texColor);*/
+		Circle (tex, (int)pixelUV.x, (int)pixelUV.y, 10);
 
         tex.Apply();
     }
 
-	public void Circle(Texture2D tex, int cx, int cy, int r, Color col)
+	public void Circle(Texture2D tex, int cx, int cy, int r)
 	{
 		int x, y, px, nx, py, ny, d;
 
@@ -59,11 +49,19 @@ public class RayCaster : MonoBehaviour {
 				py = cy + y;
 				ny = cy - y;
 
-				tex.SetPixel(px, py, col);
-				tex.SetPixel(nx, py, col);
+                Color currentColor = tex.GetPixel(px, py);
+                currentColor.a = 1.0f;
+				tex.SetPixel(px, py, currentColor);
+                currentColor = tex.GetPixel(nx, py);
+                currentColor.a = 1.0f;
+                tex.SetPixel(nx, py, currentColor);
 
-				tex.SetPixel(px, ny, col);
-				tex.SetPixel(nx, ny, col);
+                currentColor = tex.GetPixel(px, ny);
+                currentColor.a = 1.0f;
+                tex.SetPixel(px, ny, currentColor);
+                currentColor = tex.GetPixel(nx, ny);
+                currentColor.a = 1.0f;
+                tex.SetPixel(nx, ny, currentColor);
 
 			}
 		}    
