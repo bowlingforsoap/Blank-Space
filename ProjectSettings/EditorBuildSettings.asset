@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 272c906411e530744bb6d1b7f92d982a
+  - enabled: 1
+    path: Assets/Scenes/CameraControlScene.unity
+    guid: 776213cb7de0f28468f6f577f67534d0
