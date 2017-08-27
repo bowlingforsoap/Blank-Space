@@ -43,11 +43,13 @@ public class GuessController : MonoBehaviour {
 
 	public void onClick(string buttonText) {
 		for (int i = 0; i < model.transform.childCount; i++) {
-			Debug.Log ("checking model: " + model.transform.GetChild (i).name.ToLower ());
-			Debug.Log ("button text: " + buttonText.ToLower ());
-			if (model.transform.GetChild (i).name.ToLower ().Equals (buttonText.ToLower ()) && model.activeSelf) {
+			//Debug.Log ("checking model: " + model.transform.GetChild (i).name.ToLower ());
+			//Debug.Log ("button text: " + buttonText.ToLower ());
+			if (model.transform.GetChild (i).name.ToLower ().Equals (buttonText.ToLower ()) && model.transform.GetChild(i).gameObject.activeSelf) {
 				Debug.Log ("Win!");
 				winText.SetActive (true);
+			//} else {
+			//	Debug.Log ("Nope!");
 			}
 		}
 	}
