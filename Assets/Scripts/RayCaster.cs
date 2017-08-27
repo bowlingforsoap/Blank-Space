@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class RayCaster : MonoBehaviour {
+
+	public GameObject scoreText;
 
     private AlphaRemover m_AlphaRemover = new AlphaRemover();
     private Camera mainCamera;
@@ -32,5 +35,6 @@ public class RayCaster : MonoBehaviour {
             m_AlphaRemover.Remove(hit.textureCoord);
         }
         //Debug.Log("Score: " + m_AlphaRemover.PercentageRevealed() * 100);
+		scoreText.GetComponent<Text>().text = "Score: " + (m_AlphaRemover.PercentageRevealed() * 100).ToString("n3");
     }
 }
