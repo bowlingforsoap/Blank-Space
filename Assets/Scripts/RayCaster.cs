@@ -31,6 +31,6 @@ public class RayCaster : MonoBehaviour {
             }
             m_AlphaRemover.Remove(hit.textureCoord);
         }
-        Debug.Log("Score: " + m_AlphaRemover.PercentageRevealed() * 100);
+        //Debug.Log("Score: " + m_AlphaRemover.PercentageRevealed() * 100);
     }
 }

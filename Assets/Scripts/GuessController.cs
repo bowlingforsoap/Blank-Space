@@ -6,8 +6,12 @@ using UnityEngine.UI;
 
 public class GuessController : MonoBehaviour {
 
+	// Model in the scene.
+	public GameObject model;
+	public GameObject winText;
+
 	public string[] guesses;
-	public GameObject guess;
+	public GameObject guessGameObject;
 	public float buttonSize;
 	public GameObject content;
 
@@ -20,30 +24,32 @@ public class GuessController : MonoBehaviour {
 		float bottom = content.GetComponent<RectTransform> ().rect.height - buttonSize;
 		for (int i = 0; i < guesses.Length; i++) {
 			
-			guessButtons [i] = Object.Instantiate (guess, content.transform, false);
+			guessButtons [i] = Object.Instantiate (guessGameObject, content.transform, false);
 			Text text = guessButtons[i].transform.GetChild(0).GetComponent<Text> ();
 			text.text = guesses [i];
 			RectTransform rectTransform = guessButtons[i].GetComponent<RectTransform> ();
-			Debug.Log ("offsetMin before: " + rectTransform.offsetMin); // .y == bottom == 270
-			Debug.Log ("offsetMax before: " + rectTransform.offsetMax); // .y == top == 0
+			//Debug.Log ("offsetMin before: " + rectTransform.offsetMin); // .y == bottom == 270
+			//Debug.Log ("offsetMax before: " + rectTransform.offsetMax); // .y == top == 0
 			rectTransform.offsetMin = new Vector2 (rectTransform.offsetMin.x, bottom);
 			rectTransform.offsetMax = new Vector2 (rectTransform.offsetMax.x, -top);
 			rectTransform = guessButtons[i].GetComponent<RectTransform> ();
-			Debug.Log ("offsetMin after: " + rectTransform.offsetMin);
-			Debug.Log ("offsetMax after: " + rectTransform.offsetMax);
+			//Debug.Log ("offsetMin after: " + rectTransform.offsetMin);
+			//Debug.Log ("offsetMax after: " + rectTransform.offsetMax);
 
 			top += buttonSize;
 			bottom -= buttonSize;
 		}
 	}
 
-	// Use this for initialization
-	void Start () {
-		
+	public void onClick(string buttonText) {
+		for (int i = 0; i < model.transform.childCount; i++) {
+			Debug.Log ("checking model: " + model.transform.GetChild (i).name.ToLower ());
+			Debug.Log ("button text: " + buttonText.ToLower ());
+			if (model.transform.GetChild (i).name.ToLower ().Equals (buttonText.ToLower ()) && model.activeSelf) {
+				Debug.Log ("Win!");
+				winText.SetActive (true);
+			}
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
