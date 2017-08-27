@@ -54,4 +54,12 @@ public class GuessController : MonoBehaviour {
 		}
 	}
 
+	void Update() {
+		Debug.Log (Input.GetAxis ("Scroll"));
+	}
+
+	public void OnScroll() {
+		
+	}
+
 }
