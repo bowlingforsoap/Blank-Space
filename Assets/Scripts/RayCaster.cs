@@ -15,8 +15,9 @@ public class RayCaster : MonoBehaviour {
         Ray ray = currentCam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
         RaycastHit hit;
         Debug.DrawRay(ray.origin, ray.direction * 10.0f);
-        if (Physics.Raycast(ray, out hit))
-            print("I'm looking at " + hit.transform.name + " UV: " + hit.textureCoord);
+		Physics.Raycast (ray, out hit);
+//        if (Physics.Raycast(ray, out hit))
+//            print("I'm looking at " + hit.transform.name + " UV: " + hit.textureCoord);
 
 
 
