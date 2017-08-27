@@ -36,3 +36,14 @@ sysinfo.txt
 /.vs
 /Library
 /Temp
+
+*.blend1
+*.blend1.meta
+*.blend2
+*.blend2.meta
+*.blend3
+*.blend3.meta
+*.blend4
+*.blend4.meta
+*.blend5
+*.blend5.meta
