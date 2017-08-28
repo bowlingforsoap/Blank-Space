@@ -46,8 +46,8 @@ public class GuessController : MonoBehaviour {
 			//Debug.Log ("checking model: " + model.transform.GetChild (i).name.ToLower ());
 			//Debug.Log ("button text: " + buttonText.ToLower ());
 			if (model.transform.GetChild (i).name.ToLower ().Equals (buttonText.ToLower ()) && model.transform.GetChild(i).gameObject.activeSelf) {
-				Debug.Log ("Win!");
-				winText.SetActive (true);
+				//Debug.Log ("Win!");
+				//winText.SetActive (true);
 
 				ChooseNewModel (i);
 				break;
